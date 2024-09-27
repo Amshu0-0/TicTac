@@ -129,10 +129,5 @@ function playAgain() {
 }
 
 function restartGame() {
-    player1Score = 0;
-    player2Score = 0;
-    document.getElementById('player1Score').innerText = player1Score;
-    document.getElementById('player2Score').innerText = player2Score;
-    playAgain();
-    document.getElementById('turnDisplay').innerText = `New Game: ${player1}'s Turn`;
+    location.reload(); // Reloads the page
 }
