@@ -40,10 +40,18 @@ boxes.forEach((box) => {
     })
 })
 
+// disbale the boxes so that the game doesnot continue after we have found a winner
+const disableBoxes = () => {
+    for (let box of boxes) {
+        box.disabled = true;
+    }
+}
+
 // show winner function
 const showWinner = (winner) => {
-    msg.innerText = `${winner} Won`;
+    msg.innerText = `${winner} Wins`;
     msgContainer.classList.remove("hide")
+    disableBoxes();
 }
 
 // checking for the winner
@@ -55,7 +63,7 @@ const checkWinner  = () => {
 
         if (pos1Val != "" && pos2Val != "" && pos3Val != "") {
             if (pos1Val === pos2Val && pos2Val === pos3Val) {
-                console.log(pos1Val, won);
+                console.log(pos1Val, 'wins');
                 showWinner(pos1Val)
             }
         } 
