@@ -7,6 +7,7 @@ let msg = document.querySelector('#msg');
 
 // tracking which player turn
 let turnO = true; //playerX, playerO
+let click = 0;
 
 //storing winning patterns in the form of 2d array
 const winPatterns = [
@@ -26,6 +27,7 @@ const winPatterns = [
 // reset gane function
 const resetGame = () => {
     turnO = true;
+    click = 0;
     enableBoxes();
     msgContainer.classList.add("hide")
 
@@ -35,6 +37,8 @@ const resetGame = () => {
 boxes.forEach((box) => {
     box.addEventListener('click', () => {
         console.log("box was clicked");
+        click += 1
+        console.log(click)
         if (turnO === true) {
             box.innerText = "O";
             turnO = false;
@@ -43,7 +47,7 @@ boxes.forEach((box) => {
             turnO = true;
         }
         box.disabled = true; // disabled button after clicking once
-
+        
         checkWinner()
     })
 })
@@ -69,6 +73,13 @@ const showWinner = (winner) => {
     disableBoxes();
 }
 
+// tie condition 
+const tie = () => {
+    msg.innerText = `Tie!`
+    msgContainer.classList.remove("hide")
+    disableBoxes();
+}
+
 // checking for the winner
 const checkWinner  = () => {
     for (let pattern of winPatterns) {
@@ -83,6 +94,10 @@ const checkWinner  = () => {
             }
         } 
     }
+    if (click === 9) {
+        tie();
+    }
+    
 };
 
 newBtn.addEventListener('click', resetGame);
