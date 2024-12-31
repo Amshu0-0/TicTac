@@ -32,7 +32,8 @@ body {
    border: 2px solid black;
    box-shadow : 0 0 1rem rgba(0,0,0,0.3);
    font-size: 8vmin;
-   color: #bbdbb4;
+   color: #d56aa0;
+   background-color: #efefef;
 }
 
 #resetBtn {
