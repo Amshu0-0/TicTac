@@ -55,13 +55,18 @@ body {
 }
 
 #msg {
-    color: white;
-    background-color: #bbdbb4;
-    font-size: 5vmin;
+    color: #d56aa0;
+    font-weight: 550;
+    font-size: 6vmin;
 }
 
 .msg-container {
-    height: 30vmin;
+    height: 100vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
 }
 
 .hide {

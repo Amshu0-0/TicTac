@@ -23,6 +23,14 @@ const winPatterns = [
     [2, 4, 6]
 ]
 
+// reset gane function
+const resetGame = () => {
+    turnO = true;
+    enableBoxes();
+    msgContainer.classList.add("hide")
+
+}
+
 // adding event listener for buttons on what happens when the button is clicked
 boxes.forEach((box) => {
     box.addEventListener('click', () => {
@@ -47,6 +55,13 @@ const disableBoxes = () => {
     }
 }
 
+// enable the boxes so that the game starts once clicked new game
+const enableBoxes = () => {
+    for (let box of boxes) {
+        box.disabled = false;
+        box.innerText = "";
+    }
+}
 // show winner function
 const showWinner = (winner) => {
     msg.innerText = `${winner} Wins`;
@@ -69,3 +84,6 @@ const checkWinner  = () => {
         } 
     }
 };
+
+newBtn.addEventListener('click', resetGame);
+resetBtn.addEventListener('click', resetGame);
